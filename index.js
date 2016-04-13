@@ -12,6 +12,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/components/:component/:name', function(req, res) {
+  console.log(req.params.name, '<<<<<<<<<');
   var component = req.params.component;
   var name = req.params.name;
   res.render('components/' + component + '/' + name);
