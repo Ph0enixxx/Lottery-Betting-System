@@ -83,6 +83,32 @@
 #double-balls > .wrapper > header.game-header .header-box .menu-box > .game-menu > li.active a {
   color: #fff;
 }
+#double-balls > .wrapper > .main .betting-box #main-panels .select-num .title h2 {
+  float: left;
+  text-align: center;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-num .title h2 span {
+  color: #c4c4c4;
+  font-size: 12px;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-num .title h2 strong {
+  margin-right: 3px;
+  font-size: 14px;
+  font-weight: bold;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-num .title .red-title {
+  width: 423px;
+  margin-right: 41px;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-num .title .red-title strong {
+  color: #ba2636;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-num .title .blue-title {
+  width: 228px;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-num .title .blue-title strong {
+  color: #1e50a2;
+}
 .clearfix:after {
   visibility: hidden;
   display: block;
