@@ -1,0 +1,167 @@
+#double-balls * {
+  margin: 0px;
+  padding: 0px;
+}
+#double-balls a {
+  list-style: none;
+  text-decoration: none;
+}
+#double-balls > .wrapper {
+  margin: 20px 50px;
+}
+#double-balls > .wrapper > header.game-header {
+  border: 1px solid #dedede;
+  background: #fff;
+  border-bottom: 3px solid #ba2626;
+  position: relative;
+}
+#double-balls > .wrapper > header.game-header .header-box {
+  background: url('../asset/background.png') repeat-x 0 -190px;
+}
+#double-balls > .wrapper > header.game-header .header-box .title-box {
+  height: 36px;
+  line-height: 31px;
+  padding-left: 90px;
+}
+#double-balls > .wrapper > header.game-header .header-box .title-box .cz_logo {
+  background: url('../asset/lottery_flag.png') no-repeat;
+  width: 81px;
+  height: 85px;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  left: 5px;
+  top: -15px;
+}
+#double-balls > .wrapper > header.game-header .header-box .title-box .cz_ssq {
+  background-position: 0 0;
+}
+#double-balls > .wrapper > header.game-header .header-box .title-box h1 {
+  font-size: 21px;
+  line-height: 31px;
+  padding-left: 3px;
+  margin-right: 20px;
+  float: left;
+}
+#double-balls > .wrapper > header.game-header .header-box .title-box h1 a,
+#double-balls > .wrapper > header.game-header .header-box .title-box h1 a:hover {
+  color: #000;
+  text-decoration: none;
+}
+#double-balls > .wrapper > header.game-header .header-box .title-box .gameintro {
+  padding-right: 10px;
+  color: #717171;
+}
+#double-balls > .wrapper > header.game-header .header-box .menu-box {
+  padding-left: 90px;
+  line-height: 31px;
+}
+#double-balls > .wrapper > header.game-header .header-box .menu-box > .game-menu {
+  float: left;
+  border-right: 1px solid #dedede;
+  list-style: none;
+}
+#double-balls > .wrapper > header.game-header .header-box .menu-box > .game-menu > li {
+  float: left;
+  width: 90px;
+  border: 1px solid #dedede;
+  border-bottom: 0px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700px;
+}
+#double-balls > .wrapper > header.game-header .header-box .menu-box > .game-menu > li a {
+  color: #000;
+}
+#double-balls > .wrapper > header.game-header .header-box .menu-box > .game-menu > li a:hover {
+  color: #ba2636;
+}
+#double-balls > .wrapper > header.game-header .header-box .menu-box > .game-menu > li.active {
+  background-color: #ba2636;
+  border-color: #ba2636;
+}
+#double-balls > .wrapper > header.game-header .header-box .menu-box > .game-menu > li.active a {
+  color: #fff;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+/* navbar */
+.navbar-default {
+  border-bottom: 1px solid #e1e1e1;
+  background: url('../asset/header.png') 0px 50px repeat-x #991429;
+  border-radius: 0px;
+  border: 0px;
+  margin: 0px;
+}
+/* title */
+.navbar-default .navbar-brand {
+  color: #fff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #fff;
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #D90A0A;
+  background-color: #fff;
+  background-image: none;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-image: linear-gradient(to bottom, #9C2B2B 0, #F60700 100%);
+  color: #fff;
+}
+/* caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #777;
+  border-bottom-color: #777;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+/* mobile version */
+.navbar-default .navbar-toggle {
+  border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #DDD;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #CCC;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    background-image: linear-gradient(to bottom, #9C2B2B 0, #F60700 100%);
+    color: #fff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fff;
+  }
+}

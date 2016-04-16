@@ -2,6 +2,13 @@
   angular.module('LotteryApp').controller('DoubleBallsController', DoubleBallsController);
 
   function DoubleBallsController() {
-    this.test = '我是双色球';
+    this.tabs = [
+      { title: 'Dynamic Title 1', content: 'Dynamic content 1' },
+      { title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: true }
+    ];
+
+    this.model = {
+      name: 'Tabs'
+    };
   }
 })();

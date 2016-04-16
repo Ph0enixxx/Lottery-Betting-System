@@ -1,5 +1,5 @@
 (function() {
-  angular.module('LotteryApp', ['ngRoute', 'ngResource']).config(function($routeProvider) {
+  angular.module('LotteryApp', ['ngRoute', 'ngResource', 'ui.bootstrap']).config(function($routeProvider) {
     $routeProvider.when('/main', {
       templateUrl: '/components/main/main',
       controller: 'MainController',

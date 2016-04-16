@@ -1,0 +1,102 @@
+#double-balls{
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+
+  a {
+    list-style: none;
+    text-decoration: none;
+  }
+
+  >.wrapper {
+    margin: 20px 50px;
+    >header.game-header {
+      border: 1px solid #dedede;
+      background: #fff;
+      border-bottom: 3px solid #ba2626;
+      position: relative;
+      .header-box {
+        background: url('../asset/background.png') repeat-x 0 -190px;
+        .title-box {
+          height: 36px;
+          line-height: 31px;
+          padding-left: 90px;
+          .cz_logo {
+            background: url('../asset/lottery_flag.png') no-repeat;
+            width: 81px;
+            height: 85px;
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            left: 5px;
+            top: -15px;
+          }
+
+          .cz_ssq {
+            background-position: 0 0;
+          }       
+
+          h1 {
+            font-size: 21px;
+            line-height: 31px;
+            padding-left: 3px;
+            margin-right: 20px;
+            float: left;
+            a, a:hover {
+              color: #000;
+              text-decoration: none;
+            }
+          }
+
+          .gameintro {
+            padding-right: 10px;
+            color: #717171;
+          }
+        }
+        .menu-box {
+          padding-left: 90px;
+          line-height: 31px;
+          >.game-menu {
+            float: left;
+            border-right: 1px solid #dedede;
+            list-style: none;
+            >li {
+              float: left;
+              width: 90px;
+              border: 1px solid #dedede;
+              border-bottom: 0px;
+              text-align: center;
+              font-size: 14px;
+              font-weight: 700px;
+              a {
+                color: #000;
+              }
+              a:hover {
+                color: #ba2636;
+              }
+            }
+            
+            >li.active {
+              background-color: #ba2636;
+              border-color: #ba2636;
+              a {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
