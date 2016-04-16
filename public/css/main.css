@@ -83,6 +83,12 @@
 #double-balls > .wrapper > header.game-header .header-box .menu-box > .game-menu > li.active a {
   color: #fff;
 }
+#double-balls > .wrapper > .main .betting-box {
+  width: 749px;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-num .title {
+  padding-left: 42px;
+}
 #double-balls > .wrapper > .main .betting-box #main-panels .select-num .title h2 {
   float: left;
   text-align: center;
@@ -108,6 +114,90 @@
 }
 #double-balls > .wrapper > .main .betting-box #main-panels .select-num .title .blue-title strong {
   color: #1e50a2;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels ul li {
+  margin: 3px;
+  float: left;
+  background: url('../asset/balls.png') 0 0 no-repeat;
+  width: 33px;
+  height: 33px;
+  display: block;
+  text-align: center;
+  line-height: 34px;
+  font-size: 16px;
+  font-weight: 700;
+  overflow: hidden;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels ul li a {
+  color: #000;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .red-ball-box {
+  box-sizing: content-box;
+  padding-left: 42px;
+  width: 430px;
+  padding-right: 34px;
+  float: left;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .blue-ball-box {
+  width: 234px;
+  float: left;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .random-selection {
+  clear: both;
+  text-align: right;
+  color: #717171;
+  line-height: 22px;
+  padding-top: 2px;
+  padding-right: 10px;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .random-selection .random-redbtn {
+  color: #ba2636;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .random-selection .random-bluebtn {
+  color: #4260a4;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .random-selection a {
+  font-size: 12px;
+  cursor: pointer;
+  height: 20px;
+  width: 58px;
+  line-height: 20px;
+  border: 1px solid #c9c9c9;
+  margin: 0 7px 0 4px;
+  text-align: center;
+  border-radius: 2px;
+  display: inline-block;
+  background: url('../asset/background.png') repeat-x 0 0;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .random-selection a.clearing {
+  background: none;
+  line-height: 20px;
+  color: #717171;
+  display: inline;
+  border: 0;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-info {
+  padding: 0 5px;
+  font-weight: bold;
+  clear: both;
+  float: none;
+  text-align: center;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-info span {
+  z-index: 10;
+  background: #fff;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-info span .c_ba2636 {
+  color: #ba2636;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-info span .c_4260a4 {
+  color: #4260a4;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-info span > i {
+  display: block;
+  margin: -8px 15px 0 37px;
+  border-top: 1px dotted #aeaeae;
+  z-index: 9;
 }
 .clearfix:after {
   visibility: hidden;

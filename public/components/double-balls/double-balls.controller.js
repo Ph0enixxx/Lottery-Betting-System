@@ -10,5 +10,8 @@
     this.model = {
       name: 'Tabs'
     };
+
+    this.redBalls = _.range(33)
+    this.blueBalls = _.range(16);
   }
 })();

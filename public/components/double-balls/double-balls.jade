@@ -31,3 +31,37 @@
               h2.blue-title
                 strong 蓝球区
                 span 至少选择1个蓝球
+          .ball-area
+            .red-ball-box.clearfix
+              ul
+                li(ng-repeat="ball in dbPage.redBalls")
+                  a(href=""){{ball+1}}
+              p.random-selection
+                select
+                  option(value="6") 6
+                  option(value="7") 7
+                a.random-redbtn 机选红球
+                a.clearing 清空
+            .blue-ball-box.clearfix
+              ul
+                li(ng-repeat="ball in dbPage.blueBalls")
+                  a(href=""){{ball+1}}
+              p.random-selection
+                select
+                  option(value="6") 6
+                  option(value="7") 7
+                a.random-bluebtn 机选蓝球
+                a.clearing 清空
+            p.select-info
+              span
+                您当前选中了
+                strong.c_ba2636 {{6}}
+                个红球，
+                strong.c_4260a4 {{0}}
+                个蓝球，共
+                strong.c_ba2636 {{0}}
+                注，共
+                strong.c_ba2636 {{0}}
+                元 
+                i
+

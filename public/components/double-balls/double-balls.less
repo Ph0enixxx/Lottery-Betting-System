@@ -91,9 +91,11 @@
 
     >.main{
       .betting-box {
+        width: 749px;
         #main-panels {
           .select-num {
             .title {
+              padding-left: 42px;
               h2 {
                 float: left;
                 text-align: center;
@@ -123,6 +125,101 @@
                 }
               }
             }
+          }
+
+          ul {
+            li {
+              margin: 3px;
+              float: left;
+              text-align: center;
+              background: url('../asset/balls.png') 0 0 no-repeat;
+              width: 33px;
+              height: 33px;
+              display: block;
+              text-align: center;
+              line-height: 34px;
+              font-size: 16px;
+              font-weight: 700;
+              overflow: hidden;
+              a {
+                color: #000;
+              }
+            }
+          }
+
+          .red-ball-box {
+            box-sizing: content-box;
+            padding-left: 42px;
+            width: 430px;
+            padding-right: 34px;
+            float: left;
+          }
+
+          .blue-ball-box {
+            width: 234px;
+            float: left;
+          }
+
+          .random-selection {
+            clear: both;
+            text-align: right;
+            color: #717171;
+            line-height: 22px;
+            padding-top: 2px;
+            padding-right: 10px;
+            .random-redbtn {
+              color: #ba2636;
+            }
+            .random-bluebtn {
+              color: #4260a4;
+            }
+            
+            a {
+              font-size: 12px;
+              cursor: pointer;
+              height: 20px;
+              width: 58px;
+              line-height: 20px;
+              border: 1px solid #c9c9c9;
+              margin: 0 7px 0 4px;
+              text-align: center;
+              border-radius: 2px;
+              display: inline-block;
+              background: url('../asset/background.png') repeat-x 0 0;
+            }
+            
+            a.clearing {
+              background: none;
+              line-height: 20px;
+              color: #717171;
+              display: inline;
+              border: 0;
+            }
+          }
+
+          .select-info {
+            padding: 0 5px;
+            font-weight: bold;
+            clear: both;
+            float: none;
+            text-align: center;
+            span {
+              z-index: 10;
+              background: #fff;
+              .c_ba2636 {
+                color: #ba2636;
+              }
+              .c_4260a4 {
+                color: #4260a4;
+              }
+              >i {
+                display: block;
+                margin: -8px 15px 0 37px;
+                border-top: 1px dotted #aeaeae;
+                z-index: 9;
+              }           
+            }
+
           }
         }
       }
