@@ -140,6 +140,12 @@
 #double-balls > .wrapper > .main .betting-box #main-panels ul li a {
   color: #000;
 }
+#double-balls > .wrapper > .main .betting-box #main-panels ul li:hover {
+  background-position: -35px 0;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels ul li.selected a {
+  color: #fff;
+}
 #double-balls > .wrapper > .main .betting-box #main-panels .red-ball-box {
   box-sizing: content-box;
   padding-left: 42px;
@@ -147,9 +153,18 @@
   padding-right: 34px;
   float: left;
 }
+#double-balls > .wrapper > .main .betting-box #main-panels .red-ball-box ul li.selected {
+  background-position: -70px 0;
+}
 #double-balls > .wrapper > .main .betting-box #main-panels .blue-ball-box {
   width: 234px;
   float: left;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .blue-ball-box ul li.selected {
+  background-position: -140px 0;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .blue-ball-box ul li:hover {
+  background-position: -105px 0;
 }
 #double-balls > .wrapper > .main .betting-box #main-panels .random-selection {
   clear: both;
@@ -196,6 +211,9 @@
 #double-balls > .wrapper > .main .betting-box #main-panels .select-info span {
   z-index: 10;
   background: #fff;
+}
+#double-balls > .wrapper > .main .betting-box #main-panels .select-info span strong {
+  padding: 0 5px;
 }
 #double-balls > .wrapper > .main .betting-box #main-panels .select-info span .c_ba2636 {
   color: #ba2636;
@@ -423,6 +441,36 @@
 }
 #double-balls > .wrapper .aside-box .total-pool-box p {
   padding: 5px;
+}
+#double-balls > .wrapper .aside-box .draw-notice {
+  padding: 10px;
+}
+#double-balls > .wrapper .aside-box .draw-notice h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+  padding-bottom: 3px;
+}
+#double-balls > .wrapper .aside-box .draw-notice p {
+  font-size: 12px;
+}
+#double-balls > .wrapper .aside-box .draw-notice .current-award {
+  padding: 5px 0 10px;
+  margin-right: -15px;
+}
+#double-balls > .wrapper .aside-box .draw-notice .current-award .small-red-ball,
+#double-balls > .wrapper .aside-box .draw-notice .current-award .small-blue-ball {
+  display: inline-block;
+  height: 21px;
+  width: 20px;
+  color: #fff;
+  font: 700 14px/21px;
+  text-align: center;
+  background: url('../asset/balls.png') no-repeat 0 -38px;
+  margin-right: 3px;
+}
+#double-balls > .wrapper .aside-box .draw-notice .current-award .small-blue-ball {
+  background-position: -23px -38px;
 }
 .clearfix:after {
   visibility: hidden;

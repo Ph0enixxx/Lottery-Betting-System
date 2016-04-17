@@ -34,8 +34,8 @@
           .ball-area
             .red-ball-box.clearfix
               ul
-                li(ng-repeat="ball in dbPage.redBalls")
-                  a(href=""){{ball+1}}
+                li(ng-repeat="ball in dbPage.redBalls" ng-class="{'selected': ball.selected}" ng-click="dbPage.selectBall(ball, 0)")
+                  a(href=""){{ball.index}}
               p.random-selection
                 select
                   option(value="6") 6
@@ -44,8 +44,8 @@
                 a.clearing 清空
             .blue-ball-box.clearfix
               ul
-                li(ng-repeat="ball in dbPage.blueBalls")
-                  a(href=""){{ball+1}}
+                li(ng-repeat="ball in dbPage.blueBalls" ng-class="{'selected': ball.selected}" ng-click="dbPage.selectBall(ball, 1)")
+                  a(href=""){{ball.index}}
               p.random-selection
                 select
                   option(value="6") 6
@@ -55,13 +55,13 @@
             p.select-info
               span
                 您当前选中了
-                strong.c_ba2636 {{6}}
+                strong.c_ba2636 {{dbPage.colorBallStat[0]}}
                 个红球，
-                strong.c_4260a4 {{0}}
+                strong.c_4260a4 {{dbPage.colorBallStat[1]}}
                 个蓝球，共
-                strong.c_ba2636 {{0}}
+                strong.c_ba2636 {{dbPage.betCount}}
                 注，共
-                strong.c_ba2636 {{0}}
+                strong.c_ba2636 {{dbPage.money}}
                 元 
                 i
         .betbtn-box(title="确认选号")
@@ -128,4 +128,11 @@
             | 500万大奖
           p
             | 每周二、四、日晚上21:15开奖
+        .draw-notice
+          h3 开奖公告
+          p 双色球第 2016042 期 04-14(周四)
+          p.current-award
+            em.small-red-ball(ng-repeat="red in dbPage.redAwardBalls") {{red}}
+            em.small-blue-ball {{dbPage.blueBall}}
+
 
