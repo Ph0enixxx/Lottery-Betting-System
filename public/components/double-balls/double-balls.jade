@@ -65,21 +65,22 @@
                 元 
                 i
         .betbtn-box(title="确认选号")
-          a.betbtn(title="确认选号")
+          a.betbtn(title="确认选号" ng-click="dbPage.generateBet()" ng-show="dbPage.betCount")
+          a.betbtn.prohibit(title="确认选号" ng-hide="dbPage.betCount")
         .new-bet
           .selected-box.clearfix
             #select-list-box.selected-list
               dl
-                dd
-                  span.type 单式
+                dd(ng-repeat="bet in dbPage.betList")
+                  span.type {{bet.type}}
                   span.nums
-                    strong.c_ba2636 03 08 10 11 23 31
-                    strong(style="color: #c4c4c4;") |
-                    strong.c_4260a4 01 
+                    strong.c_ba2636 {{bet.red | limitString: 29}}
+                    strong(style="color: #c4c4c4;" ng-hide="bet.red.length >= 29") |
+                    strong.c_4260a4(ng-hide="bet.red.length >= 29") {{bet.blue | limitString:29 - bet.red.length}}
                   span.edit
                     a 修改
                     a 删除
-                  span.sum 2元
+                  span.sum {{bet.sum}} 元
             .selected-btnbox
               a.selected-btn 机选一注
               .random-btn
