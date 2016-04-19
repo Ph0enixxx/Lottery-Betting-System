@@ -11,11 +11,14 @@
     var PER_PRICE = 2;
 
     ballCtrl.randomOneBet = randomOneBet;
+    ballCtrl.randomMultiBets = randomMultiBets;
     ballCtrl.generateBet = generateBet;
     ballCtrl.addNum = addNum;
     ballCtrl.deleteBet = deleteBet;
     ballCtrl.modSelect = -1;
+    ballCtrl.randomTime = 5;
     ballCtrl.subNum = subNum;
+    ballCtrl.sumPrice = 0;
     ballCtrl.modBet = modBet;
     ballCtrl.selectBall = selectBall;
     ballCtrl.colorBallStat = [0, 0];
@@ -111,6 +114,7 @@
           sum: ballCtrl.money
         };
       }
+      ballCtrl.sumPrice += ballCtrl.money;
 
       ballCtrl.money = 0;
       ballCtrl.betCount = 0;
@@ -133,11 +137,18 @@
       ballCtrl.colorBallStat[BLUE_BALL] = blueBalls.length;
       ballCtrl.betCount  = appUtils.computeCxy(ballCtrl.colorBallStat[RED_BALL], NEED_RED_NUM) * ballCtrl.colorBallStat[BLUE_BALL];
       ballCtrl.money =  ballCtrl.betCount * PER_PRICE;
+      ballCtrl.sumPrice -= ballCtrl.money;
       _.each(redBalls, function(ball) {
         ballCtrl.redBalls[parseInt(ball) - 1].selected = true;
       });
       _.each(blueBalls, function(ball) {
         ballCtrl.blueBalls[parseInt(ball) - 1].selected = true;
+      });
+    }
+
+    function randomMultiBets(time) {
+      _(time).times(function() {
+        randomOneBet();
       });
     }
 

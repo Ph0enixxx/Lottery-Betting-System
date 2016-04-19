@@ -85,8 +85,8 @@
               a.selected-btn(ng-click="dbPage.randomOneBet()") 机选一注
               .random-btn
                 label
-                  input(type="text" placeholder="5注")
-                a.selected-btn 机选
+                  input(type="text" placeholder="5注" ng-model="dbPage.randomTime")
+                a.selected-btn(ng-click="dbPage.randomMultiBets(dbPage.randomTime)") 机选
               .selected-btn.clear-btn 清空列表
           .bet-result
             span.holder-wrap-left
@@ -111,7 +111,7 @@
               | 期，
             span.holder-wrap-right
               | 共
-              strong.bet-money-count 2
+              strong.bet-money-count {{dbPage.sumPrice * dbPage.betTimes * dbPage.betWeight}}
               | 元
           .betbtn-box
             p.bet-btns
