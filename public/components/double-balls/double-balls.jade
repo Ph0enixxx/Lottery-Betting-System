@@ -71,14 +71,14 @@
           .selected-box.clearfix
             #select-list-box.selected-list
               dl
-                dd(ng-repeat="bet in dbPage.betList")
+                dd(ng-repeat="bet in dbPage.betList track by $index" ng-class="{'modify': dbPage.modSelect==$index}")
                   span.type {{bet.type}}
                   span.nums
                     strong.c_ba2636 {{bet.red | limitString: 29}}
                     strong(style="color: #c4c4c4;" ng-hide="bet.red.length >= 29") |
                     strong.c_4260a4(ng-hide="bet.red.length >= 29") {{bet.blue | limitString:29 - bet.red.length}}
                   span.edit
-                    a 修改
+                    a(ng-click="dbPage.modBet($index)") 修改
                     a 删除
                   span.sum {{bet.sum}} 元
             .selected-btnbox
@@ -96,16 +96,18 @@
             span.time-num-wrap
               | 我要买
               span.add-substract
-                a.substract
-                input(type="text" value="1")
-                a.add
+                a.substract(ng-click="dbPage.subNum('betWeight')" ng-show="dbPage.betWeight>1")
+                a.substract.prohibit(ng-hide="dbPage.betWeight>1")
+                input(type="text" ng-model="dbPage.betWeight")
+                a.add(ng-click="dbPage.addNum('betWeight')")
               | 倍，
             span.period-num-wrap
               | 连续购买
               span.add-substract
-                a.substract
-                input(type="text" value="1")
-                a.add
+                a.substract(ng-click="dbPage.subNum('betTimes')" ng-show="dbPage.betTimes>1")
+                a.substract.prohibit(ng-hide="dbPage.betTimes>1")
+                input(type="text" value="1" ng-model="dbPage.betTimes")
+                a.add(ng-click="dbPage.addNum('betTimes')")
               | 期，
             span.holder-wrap-right
               | 共

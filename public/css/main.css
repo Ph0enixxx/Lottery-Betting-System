@@ -4,6 +4,7 @@
   box-sizing: content-box;
 }
 #double-balls a {
+  cursor: pointer;
   list-style: none;
   text-decoration: none;
 }
@@ -259,6 +260,9 @@
 #double-balls > .wrapper .new-bet .selected-box #select-list-box dl dd:hover {
   background-color: #FBF8E5;
 }
+#double-balls > .wrapper .new-bet .selected-box #select-list-box dl dd.modify {
+  background-color: #ffeebf;
+}
 #double-balls > .wrapper .new-bet .selected-box #select-list-box dl dd {
   height: 26px;
   line-height: 26px;
@@ -370,11 +374,16 @@
   float: left;
   background: url('../asset/operation.png') no-repeat -72px 0px;
   border-right: 1px solid #abadb3;
+  cursor: pointer;
+}
+#double-balls > .wrapper .new-bet .bet-result .add-substract .substract.prohibit {
+  background-position: -72px -22px;
 }
 #double-balls > .wrapper .new-bet .bet-result .add-substract .add {
   float: right;
   background: url('../asset/operation.png') no-repeat -119px 0px;
   border-left: 1px solid #abadb3;
+  cursor: pointer;
 }
 #double-balls > .wrapper .new-bet .bet-result .add-substract a {
   display: inline-block;

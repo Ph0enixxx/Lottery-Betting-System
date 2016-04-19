@@ -11,11 +11,17 @@
     var PER_PRICE = 2;
 
     ballCtrl.generateBet = generateBet;
+    ballCtrl.addNum = addNum;
+    ballCtrl.modSelect = -1;
+    ballCtrl.subNum = subNum;
+    ballCtrl.modBet = modBet;
     ballCtrl.selectBall = selectBall;
     ballCtrl.colorBallStat = [0, 0];
     ballCtrl.money = 0;
     ballCtrl.betList = [];
     ballCtrl.betCount = 0;
+    ballCtrl.betWeight = 1;
+    ballCtrl.betTimes = 1;
     ballCtrl.tabs = [
       { title: 'Dynamic Title 1', content: 'Dynamic content 1' },
       { title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: true }
@@ -29,6 +35,14 @@
     ballCtrl.blueBalls = initBalls(BLUE_BALL_NUM); 
     ballCtrl.redAwardBalls = _.range(1,7);
     ballCtrl.blueBall = 2;
+
+    function addNum(field) {
+      ballCtrl[field] ++;
+    }
+
+    function subNum(field) {
+      ballCtrl[field] --;
+    }
 
     function selectBall(ball, color) {
       if (ball.selected) {
@@ -79,16 +93,46 @@
           blueBall.push(ball.index);
         }
       });
-      ballCtrl.betList.push({
-        type: ballCtrl.betCount == 1 ? '单式' : '复式',
-        red: redBall.join(' '),
-        blue: blueBall.join(' '),
-        sum: ballCtrl.money
-      });
+      if (ballCtrl.modSelect === -1) {
+        ballCtrl.betList.push({
+          type: ballCtrl.betCount == 1 ? '单式' : '复式',
+          red: redBall.join(' '),
+          blue: blueBall.join(' '),
+          sum: ballCtrl.money
+        });
+      }
+      else{
+        ballCtrl.betList[ballCtrl.modSelect] = {
+          type: ballCtrl.betCount == 1 ? '单式' : '复式',
+          red: redBall.join(' '),
+          blue: blueBall.join(' '),
+          sum: ballCtrl.money
+        };
+      }
+
       ballCtrl.money = 0;
       ballCtrl.betCount = 0;
       ballCtrl.colorBallStat = [0, 0];
+      ballCtrl.modSelect = -1;
       clearBalls();
+    }
+
+    function modBet(index) {
+      ballCtrl.modSelect = index;
+      clearBalls();
+      var ballMap = ballCtrl.betList[index];
+      var redBalls = ballMap.red.split(' ');
+      var blueBalls = ballMap.blue.split(' ');
+      ballCtrl.colorBallStat[RED_BALL] = redBalls.length;
+      ballCtrl.colorBallStat[BLUE_BALL] = blueBalls.length;
+      ballCtrl.betCount  = appUtils.computeCxy(ballCtrl.colorBallStat[RED_BALL], NEED_RED_NUM) * ballCtrl.colorBallStat[BLUE_BALL];
+      ballCtrl.money =  ballCtrl.betCount * PER_PRICE;
+      _.each(redBalls, function(ball) {
+        ballCtrl.redBalls[parseInt(ball) - 1].selected = true;
+      });
+      _.each(blueBalls, function(ball) {
+        ballCtrl.blueBalls[parseInt(ball) - 1].selected = true;
+      });
     }
   }
 })();
