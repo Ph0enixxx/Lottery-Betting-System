@@ -12,6 +12,7 @@
 
     ballCtrl.generateBet = generateBet;
     ballCtrl.addNum = addNum;
+    ballCtrl.deleteBet = deleteBet;
     ballCtrl.modSelect = -1;
     ballCtrl.subNum = subNum;
     ballCtrl.modBet = modBet;
@@ -115,6 +116,10 @@
       ballCtrl.colorBallStat = [0, 0];
       ballCtrl.modSelect = -1;
       clearBalls();
+    }
+
+    function deleteBet(index) {
+      ballCtrl.betList.splice(index, 1);
     }
 
     function modBet(index) {

@@ -79,7 +79,7 @@
                     strong.c_4260a4(ng-hide="bet.red.length >= 29") {{bet.blue | limitString:29 - bet.red.length}}
                   span.edit
                     a(ng-click="dbPage.modBet($index)") 修改
-                    a 删除
+                    a(ng-click="dbPage.deleteBet($index)") 删除
                   span.sum {{bet.sum}} 元
             .selected-btnbox
               a.selected-btn 机选一注
