@@ -82,7 +82,7 @@
                     a(ng-click="dbPage.deleteBet($index)") 删除
                   span.sum {{bet.sum}} 元
             .selected-btnbox
-              a.selected-btn 机选一注
+              a.selected-btn(ng-click="dbPage.randomOneBet()") 机选一注
               .random-btn
                 label
                   input(type="text" placeholder="5注")

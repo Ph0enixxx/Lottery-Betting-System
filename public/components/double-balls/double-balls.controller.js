@@ -10,6 +10,7 @@
     var BLUE_BALL = 1;
     var PER_PRICE = 2;
 
+    ballCtrl.randomOneBet = randomOneBet;
     ballCtrl.generateBet = generateBet;
     ballCtrl.addNum = addNum;
     ballCtrl.deleteBet = deleteBet;
@@ -138,6 +139,24 @@
       _.each(blueBalls, function(ball) {
         ballCtrl.blueBalls[parseInt(ball) - 1].selected = true;
       });
+    }
+
+    function randomOneBet() {
+      var cnt = 0;
+      var num;
+      clearBalls();
+      while(cnt<6) {
+        num = Math.ceil(Math.random() * RED_BALL_NUM);
+        if (!ballCtrl.redBalls[num - 1].selected) {
+          ballCtrl.redBalls[num - 1].selected = true;
+          cnt ++;
+        }
+      }
+      num = Math.ceil(Math.random() * BLUE_BALL_NUM);
+      ballCtrl.blueBalls[num - 1].selected = true;
+      ballCtrl.betCount = 1;
+      ballCtrl.money = 2;
+      generateBet();
     }
   }
 })();
