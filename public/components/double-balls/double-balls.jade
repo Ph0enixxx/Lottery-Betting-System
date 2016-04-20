@@ -87,7 +87,7 @@
                 label
                   input(type="text" placeholder="5注" ng-model="dbPage.randomTime")
                 a.selected-btn(ng-click="dbPage.randomMultiBets(dbPage.randomTime)") 机选
-              .selected-btn.clear-btn 清空列表
+              .selected-btn.clear-btn(ng-click="dbPage.clearList()") 清空列表
           .bet-result
             span.holder-wrap-left
               | 共
@@ -116,7 +116,7 @@
           .betbtn-box
             p.bet-btns
               span(id="normal-btn-box")
-                a.betting-btn
+                a.betting-btn(ng-click="dbPage.submitBet()")
       .aside-box
         .total-pool-box
           h3 双色球奖池

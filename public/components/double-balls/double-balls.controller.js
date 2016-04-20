@@ -10,6 +10,8 @@
     var BLUE_BALL = 1;
     var PER_PRICE = 2;
 
+    ballCtrl.clearList = clearList;
+    ballCtrl.submitBet = submitBet;
     ballCtrl.randomOneBet = randomOneBet;
     ballCtrl.randomMultiBets = randomMultiBets;
     ballCtrl.generateBet = generateBet;
@@ -168,6 +170,17 @@
       ballCtrl.betCount = 1;
       ballCtrl.money = 2;
       generateBet();
+    }
+
+    function clearList() {
+      ballCtrl.betList = [];
+      ballCtrl.sumPrice = 0;
+    }
+
+    function submitBet() {
+      alert('订单已经提交，祝好运！');
+      clearBalls();
+      clearList();
     }
   }
 })();
