@@ -498,6 +498,17 @@
 .c_4260a4 {
   color: #4260a4;
 }
+#authenticate {
+  width: 400px;
+  margin: auto;
+  margin-top: 60px;
+}
+#authenticate .wrapper {
+  margin: 30px 20px;
+}
+#authenticate .wrapper .input-group + .input-group {
+  margin-top: 20px;
+}
 /* navbar */
 .navbar-default {
   border-bottom: 1px solid #e1e1e1;
