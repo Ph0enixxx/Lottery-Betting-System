@@ -4,10 +4,12 @@
       .wrapper
         .input-group
           span.input-group-addon#basic-addon1 账号
-          input.form-control(type="text" aria-describedby="basic-addon1")
+          input.form-control(type="text" aria-describedby="basic-addon1" ng-model="auth.username")
         .input-group
           span.input-group-addon#basic-addon2 密码
-          input.form-control(type="password" aria-describedby="basic-addon2")
+          input.form-control(type="password" aria-describedby="basic-addon2" ng-model="auth.password")
+        .input-group
+          .btn.btn-primary#login(ng-click="auth.login()") 登录
     uib-tab(index='1', heading='注册')
        .wrapper
         .input-group

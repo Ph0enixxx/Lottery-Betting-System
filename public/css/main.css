@@ -508,6 +508,12 @@
 }
 #authenticate .wrapper .input-group + .input-group {
   margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+#authenticate .wrapper #login {
+  width: 80%;
+  margin: auto;
 }
 /* navbar */
 .navbar-default {
