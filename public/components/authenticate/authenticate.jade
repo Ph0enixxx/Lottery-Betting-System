@@ -2,6 +2,7 @@
   uib-tabset(active='activeJustified', justified='true')
     uib-tab(index='0', heading='登录')
       .wrapper
+        span(style="color: red;"){{auth.msg}}
         .input-group
           span.input-group-addon#basic-addon1 账号
           input.form-control(type="text" aria-describedby="basic-addon1" ng-model="auth.username")
@@ -18,3 +19,5 @@
         .input-group
           span.input-group-addon#basic-addon2 密码
           input.form-control(type="password" aria-describedby="basic-addon2") 
+        .input-group
+          .btn.btn-primary#login() 注册
