@@ -1,0 +1,135 @@
+#big-fun
+  .wrapper
+    header.game-header.clearfix
+      .header-box
+        .title-box.clearfix
+          span.cz_logo.cz_ssq
+          h1
+            a(href="#/double-balls")大乐透
+          span.gameintro
+            每注2元，最高奖1000万
+          span
+            投注截止时间: 2016-04-17 19:40　全网最晚截止
+        .menu-box.clearfix
+          ul.game-menu
+            li.active
+              a(href="")快速投注
+    section.main.clearfix
+      section.betting-box
+        #main-panels
+          .select-num
+            .title
+              h2.red-title
+                strong 红球区
+                span 至少选择5个红球
+              h2.blue-title
+                strong 蓝球区
+                span 至少选择2个蓝球
+          .ball-area
+            .red-ball-box.clearfix
+              ul
+                li(ng-repeat="ball in bigFun.redBalls" ng-class="{'selected': ball.selected}" ng-click="bigFun.selectBall(ball, 0)")
+                  a(href=""){{ball.index}}
+              p.random-selection
+                select
+                  option(value="6") 6
+                  option(value="7") 7
+                a.random-redbtn 机选红球
+                a.clearing 清空
+            .blue-ball-box.clearfix
+              ul
+                li(ng-repeat="ball in bigFun.blueBalls" ng-class="{'selected': ball.selected}" ng-click="bigFun.selectBall(ball, 1)")
+                  a(href=""){{ball.index}}
+              p.random-selection
+                select
+                  option(value="6") 6
+                  option(value="7") 7
+                a.random-bluebtn 机选蓝球
+                a.clearing 清空
+            p.select-info
+              span
+                您当前选中了
+                strong.c_ba2636 {{bigFun.colorBallStat[0]}}
+                个红球，
+                strong.c_4260a4 {{bigFun.colorBallStat[1]}}
+                个蓝球，共
+                strong.c_ba2636 {{bigFun.betCount}}
+                注，共
+                strong.c_ba2636 {{bigFun.money}}
+                元 
+                i
+        .betbtn-box(title="确认选号")
+          a.betbtn(title="确认选号" ng-click="bigFun.generateBet()" ng-show="bigFun.betCount")
+          a.betbtn.prohibit(title="确认选号" ng-hide="bigFun.betCount")
+        .new-bet
+          .selected-box.clearfix
+            #select-list-box.selected-list
+              dl
+                dd(ng-repeat="bet in bigFun.betList track by $index" ng-class="{'modify': bigFun.modSelect==$index}")
+                  span.type {{bet.type}}
+                  span.nums
+                    strong.c_ba2636 {{bet.red | limitString: 29}}
+                    strong(style="color: #c4c4c4;" ng-hide="bet.red.length >= 29") |
+                    strong.c_4260a4(ng-hide="bet.red.length >= 29") {{bet.blue | limitString:29 - bet.red.length}}
+                  span.edit
+                    a(ng-click="bigFun.modBet($index)") 修改
+                    a(ng-click="bigFun.deleteBet($index)") 删除
+                  span.sum {{bet.sum}} 元
+            .selected-btnbox
+              a.selected-btn(ng-click="bigFun.randomOneBet()") 机选一注
+              .random-btn
+                label
+                  input(type="text" placeholder="5注" ng-model="bigFun.randomTime")
+                a.selected-btn(ng-click="bigFun.randomMultiBets(bigFun.randomTime)") 机选
+              .selected-btn.clear-btn(ng-click="bigFun.clearList()") 清空列表
+          .bet-result
+            span.holder-wrap-left
+              | 共
+              strong.bet-num-count 1
+              | 注，
+            span.time-num-wrap
+              | 我要买
+              span.add-substract
+                a.substract(ng-click="bigFun.subNum('betWeight')" ng-show="bigFun.betWeight>1")
+                a.substract.prohibit(ng-hide="bigFun.betWeight>1")
+                input(type="text" ng-model="bigFun.betWeight")
+                a.add(ng-click="bigFun.addNum('betWeight')")
+              | 倍，
+            span.period-num-wrap
+              | 连续购买
+              span.add-substract
+                a.substract(ng-click="bigFun.subNum('betTimes')" ng-show="bigFun.betTimes>1")
+                a.substract.prohibit(ng-hide="bigFun.betTimes>1")
+                input(type="text" value="1" ng-model="bigFun.betTimes")
+                a.add(ng-click="bigFun.addNum('betTimes')")
+              | 期，
+            span.holder-wrap-right
+              | 共
+              strong.bet-money-count {{bigFun.sumPrice * bigFun.betTimes * bigFun.betWeight}}
+              | 元
+          .betbtn-box
+            p.bet-btns
+              span(id="normal-btn-box")
+                a.betting-btn(ng-click="bigFun.submitBet()")
+      .aside-box
+        .total-pool-box
+          h3 大乐透奖池
+          p.total-pool
+            strong 5
+            | 亿
+            strong 8983
+            | 万
+          p
+            | 可开出
+            span.c_ba2636 117注
+            | 500万大奖
+          p
+            | 每周二、四、日晚上21:15开奖
+        .draw-notice
+          h3 开奖公告
+          p 大乐透第 2016042 期 04-14(周四)
+          p.current-award
+            em.small-red-ball(ng-repeat="red in bigFun.redAwardBalls") {{red}}
+            em.small-blue-ball(ng-repeat="blue in bigFun.blueAwardBalls") {{blue}}
+
+

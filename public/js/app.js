@@ -16,6 +16,10 @@
       templateUrl: '/components/quick-three/quick-three',
       controller: 'QuickThreeController',
       controllerAs: 'quickThree'
+    }).when('/big-fun', {
+      templateUrl: '/components/big-fun/big-fun',
+      controller: 'BigFunController',
+      controllerAs: 'bigFun'
     }).otherwise({
       redirectTo: '/main'
     });

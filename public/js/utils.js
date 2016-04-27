@@ -13,6 +13,8 @@
     };
 
     that.computeCxy = function(x, y) {
+      if (x < y) return 0;
+      if (x == y) return 1;
       return Math.round(that.factorial(x) / that.factorial(y));
     }
   }

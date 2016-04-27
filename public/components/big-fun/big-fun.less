@@ -1,0 +1,553 @@
+#big-fun{
+  *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: content-box;
+  }
+
+  a {
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  >.wrapper {
+    margin: 20px auto;
+    width: 990px;
+    >header.game-header {
+      border: 1px solid #dedede;
+      border-bottom: 3px solid #f79b66;
+      position: relative;
+      .header-box {
+        background: url('../asset/fun-background.png') repeat-x;
+        background-position: 0 -301px;
+        .title-box {
+          height: 36px;
+          line-height: 31px;
+          padding-left: 90px;
+          .cz_logo {
+            background: url('../asset/lottery_flag.png') no-repeat;
+            width: 81px;
+            height: 85px;
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            left: 5px;
+            top: -15px;
+          }
+
+          .cz_ssq {
+            background-position: 0 -270px;
+          }       
+
+          h1 {
+            font-size: 21px;
+            line-height: 31px;
+            padding-left: 3px;
+            margin-right: 20px;
+            float: left;
+            a, a:hover {
+              color: #000;
+              text-decoration: none;
+            }
+          }
+
+          .gameintro {
+            padding-right: 10px;
+            color: #717171;
+          }
+        }
+        .menu-box {
+          padding-left: 90px;
+          line-height: 31px;
+          >.game-menu {
+            float: left;
+            border-right: 1px solid #dedede;
+            list-style: none;
+            >li {
+              float: left;
+              width: 90px;
+              border: 1px solid #dedede;
+              border-bottom: 0px;
+              text-align: center;
+              font-size: 14px;
+              font-weight: 700px;
+              a {
+                color: #000;
+              }
+              a:hover {
+                color: #ba2636;
+              }
+            }
+            
+            >li.active {
+              background-color: #FF7937;
+              border-color: #FF7937;
+              a {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    >.main{
+      border: 1px solid #d3d3d3;
+      background-color: #f6f6f6;
+      .betting-box {
+        width: 749px;
+        float: left;
+        border-right: 1px solid #dedede;
+        background: #fff;
+        #main-panels {
+          .select-num {
+            .title {
+              padding-left: 42px;
+              h2 {
+                float: left;
+                text-align: center;
+                span {
+                  color: #c4c4c4;
+                  font-size: 12px;
+                }
+                strong {
+                  margin-right: 3px;
+                  font-size: 14px;
+                  font-weight: bold;
+                }
+              }
+
+              .red-title {
+                width: 423px;
+                margin-right: 41px;
+                strong {
+                  color: #ba2636;
+                }
+              }
+
+              .blue-title {
+                width: 228px;
+                strong {
+                  color: #1e50a2;
+                }
+              }
+            }
+          }
+
+          ul {
+            li {
+              margin: 3px;
+              float: left;
+              text-align: center;
+              background: url('../asset/balls.png') 0 0 no-repeat;
+              width: 33px;
+              height: 33px;
+              display: block;
+              text-align: center;
+              line-height: 34px;
+              font-size: 16px;
+              font-weight: 700;
+              overflow: hidden;
+              a {
+                color: #000;
+              }
+            }
+
+            li:hover {
+              background-position: -35px 0;
+            }
+
+            li.selected {
+              a {
+                color: #fff;
+              }
+            }
+
+          }
+
+          .red-ball-box {
+            box-sizing: content-box;
+            padding-left: 42px;
+            width: 480px;
+            padding-right: 20px;
+            float: left;
+            ul li.selected {
+              background-position: -70px 0;
+            }
+          }
+
+          .blue-ball-box {
+            width: 160px;
+            float: left;
+            ul li.selected {
+              background-position: -140px 0;
+            }
+            ul li:hover {
+              background-position: -105px 0;
+            }
+          }
+
+          .random-selection {
+            clear: both;
+            text-align: right;
+            color: #717171;
+            line-height: 22px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            .random-redbtn {
+              color: #ba2636;
+            }
+            .random-bluebtn {
+              color: #4260a4;
+            }
+            
+            a {
+              font-size: 12px;
+              cursor: pointer;
+              height: 20px;
+              width: 58px;
+              line-height: 20px;
+              border: 1px solid #c9c9c9;
+              margin: 0 7px 0 4px;
+              text-align: center;
+              border-radius: 2px;
+              display: inline-block;
+              background: url('../asset/background.png') repeat-x 0 0;
+            }
+            
+            a.clearing {
+              background: none;
+              line-height: 20px;
+              color: #717171;
+              display: inline;
+              border: 0;
+            }
+          }
+
+          .select-info {
+            padding: 0 5px;
+            font-weight: bold;
+            clear: both;
+            float: none;
+            text-align: center;
+            span {
+              z-index: 10;
+              background: #fff;
+              strong {
+                padding: 0 5px;
+              }
+              .c_ba2636 {
+                color: #ba2636;
+              }
+              .c_4260a4 {
+                color: #4260a4;
+              }
+              >i {
+                display: block;
+                margin: -8px 15px 0 37px;
+                border-top: 1px dotted #aeaeae;
+                z-index: 9;
+              }           
+            }
+
+          }
+        }
+      }
+    }
+
+    .betbtn-box {
+      padding: 11px 0 6px 0;
+      text-align: center;
+      .betbtn {
+        width: 137px;
+        height: 34px;
+        display: inline-block;
+        background: url('../asset/buttons.png') no-repeat 0 -75px;
+        cursor: pointer;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .prohibit {
+        background-position: 0 -145px;
+      }
+    }
+
+    .new-bet {
+      .selected-box {
+        padding-left: 81px;
+        #select-list-box {
+          float: left;
+          border: 1px solid #b6b6b6;
+          dl {
+            width: 479px;
+            height: 135px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            dd:hover {
+              background-color: #FBF8E5;
+            }
+            dd.modify {
+              background-color: #ffeebf;
+            }
+            dd {
+              height: 26px;
+              line-height: 26px;
+              border-bottom: 1px dotted #aeaeae;
+              padding: 0 5px;
+              clear: both;
+              width: 451px;
+              .type {
+                width: 50px;
+              }
+              .nums {
+                width: 260px;
+                strong {
+                  padding: 0 5px;
+                  font-family: Simsun;
+                }
+              }
+              .edit {
+                float: right;
+                a {
+                  margin: 0 3px;
+                  color: #717171;
+                }
+              }
+              .sum {
+                float: right;
+                padding-right: 10px;
+                text-align: right;
+              }
+            }
+          }
+        }
+        .selected-btnbox {
+          float: left;
+          padding-left: 10px;
+          position: relative;
+
+          .selected-btn {
+            height: 26px;
+            width: 96px;
+            line-height: 26px;
+            border: 1px solid #c9c9c9;
+            border-radius: 2px;
+            display: block;
+            background: url('../asset/background.png') repeat-x 0 -64px;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #000;
+            cursor: pointer;
+          }
+          .random-btn {
+            height: 28px;
+            margin-bottom: 10px;
+            width: 98px;
+            font-family: Tahoma;
+            position: relative;
+            overflow: hidden;
+            >.selected-btn {
+              width: 46px;
+              float: right;
+            }
+            label {
+              float: left;
+              line-height: 28px;
+              text-align: center;
+              border: 1px solid #b4b4b4;
+              width: 42px;
+              height: 26px;
+              input {
+                width: 100%;
+                line-height: 18px;
+                font-size: 12px;
+                padding: 3px 0;
+                margin: 0;
+                display: block;
+                text-align: center;
+                border: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .bet-result {
+        text-align: center;
+        padding: 3px 0 11px;
+        font-size: 12px;
+        height: 27px;
+        line-height: 27px;
+        .holder-wrap-left {
+          display: inline-block;
+          width: 135px;
+          text-align: right;
+          .bet-num-count {
+            color: #ba2636;
+            margin: 0 3px;
+          }
+        }
+
+        .time-num-wrap {
+          text-align: center;
+          line-height: 27px;
+
+        }
+
+
+        .add-substract {
+          height: 20px;
+          width: 83px;
+          display: inline-block;
+          border: 1px solid #abadb3;
+          position: relative;
+          top: 6px;
+          margin: 0 3px;
+          .substract {
+            float: left;
+            background: url('../asset/operation.png') no-repeat -72px 0px;
+            border-right: 1px solid #abadb3;
+            cursor: pointer;
+          }
+          .substract.prohibit {
+            background-position: -72px -22px;
+          }
+          .add {
+            float: right;
+            background: url('../asset/operation.png') no-repeat -119px 0px;
+            border-left: 1px solid #abadb3;
+            cursor: pointer;
+          }
+
+          a {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            color: #333;
+            outline: 0;
+          }
+
+          input {
+            width: 37px;
+            height: 20px;
+            line-height: 20px;
+            float: left;
+            padding: 0;
+            border: 0px;
+            text-align: center;
+          }
+        }
+
+        .holder-wrap-right {
+          width: 135px;
+          display: inline-block;
+          text-align: left;
+        }
+      }
+
+      .betbtn-box {
+        padding: 10 0 15px;
+        >.bet-btns {
+          height: 43px;
+          text-align: center;
+          line-height: 43px;
+          #normal-btn-box {
+            line-height: 43px;
+            .betting-btn {
+              background: url('../asset/buttons.png') no-repeat 0 -180px;
+              width: 146px;
+              height: 43px;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+    
+    .aside-box {
+      width: 237px;
+      float: right;
+      padding: 10px 0 0 0;
+      line-height: 21px;
+      color: #000;
+      .total-pool-box {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e3e3e3;
+        color: #717171;
+        h3 {
+          font-size: 13px; 
+          color: #000;
+          padding: 5px;
+        }
+        .total-pool {
+          color: #ba2636;
+          font-weight: 700;
+          line-height: 30px;
+          font-size: 14px;
+          strong {
+            font-size: 22px;
+            line-height: 30px;
+            padding: 5px;
+          }
+        }
+
+        p {
+          padding: 5px;
+        }
+      }
+
+      .draw-notice {
+        padding: 10px;
+        h3 {
+          font-size: 13px;
+          font-weight: 700;
+          color: #333;
+          padding-bottom: 3px;
+        } 
+        p {
+          font-size: 12px;
+        }
+        .current-award {
+          padding: 5px 0 10px;
+          margin-right: -15px;
+          .small-blue-ball {
+          
+          }
+          .small-red-ball, .small-blue-ball {
+            display: inline-block;
+            height: 21px;
+            width: 20px;
+            color: #fff;
+            font: 700 14px/21px;
+            text-align: center;
+            background: url('../asset/balls.png') no-repeat 0 -38px;
+            margin-right: 3px;
+          }
+          .small-blue-ball {
+            background-position: -23px -38px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.c_ba2636 {
+  color: #ba2636;
+}
+
+.c_4260a4 {
+  color: #4260a4;
+}

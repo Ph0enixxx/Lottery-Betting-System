@@ -19,7 +19,30 @@
     .main
       .menu-box
         ul.game-menu
-          li
+          li.active
             a 选号投注
+      section.betting-box
+        #main-panels
+          .bet-box
+            p.game-intro
+              label
+                input(type="radio" checked="checked") 
+                | &nbsp;标准投注
+              label
+                input(type="radio") 
+                |  &nbsp;拖胆投注
+            .normal
+              .title
+                h3
+                  | 玩法提示
+                  span 
+                    | 从1～6中任选3个或多个号码，所选号码与开奖号码的3个号码相同即中奖，单注奖金
+                    em 40
+                    | 元
+              .select-num
+                ul.balls-box
+                  li(ng-repeat="ball in quickThree.balls")
+                    em {{ball}}
+
 
 
