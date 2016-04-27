@@ -12,6 +12,10 @@
       templateUrl: '/components/authenticate/authenticate',
       controller: 'AuthenticateController',
       controllerAs: 'auth'
+    }).when('/quick-three', {
+      templateUrl: '/components/quick-three/quick-three',
+      controller: 'QuickThreeController',
+      controllerAs: 'quickThree'
     }).otherwise({
       redirectTo: '/main'
     });
