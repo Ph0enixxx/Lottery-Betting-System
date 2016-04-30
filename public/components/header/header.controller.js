@@ -16,5 +16,9 @@
         $window.location.href = '/#/authenticate';
       });
     }
+
+    function switchNav() {
+    
+    }
   }
 })();

@@ -11,7 +11,7 @@
           em.c_ba2636 10000
           | 投注截止还有：
         p.timing-box
-          span 10:32:12
+          span {{quickThree.timingString}}
         p.intro
           今天已经销售 80 期，还剩 
           em.c_ba2636 0
@@ -41,8 +41,63 @@
                     | 元
               .select-num
                 ul.balls-box
-                  li(ng-repeat="ball in quickThree.balls")
-                    em {{ball}}
-
+                  li(ng-repeat="ball in quickThree.balls" ng-click="quickThree.selectBall($index)")
+                    em(ng-class="{'selected' : ball.select}") {{ball.ballNum}}
+              .select-info
+                span
+                  | 您选中了
+                  strong.c_ba2636 {{quickThree.betNum}}
+                  | 注，共
+                  strong.c_ba2636 {{quickThree.money}}
+                  | 元
+              .bet-btn-box
+                a(ng-show="quickThree.selectSum<3")
+                a.bet-ok(ng-click="quickThree.makeOneBet()" ng-hide="quickThree.selectSum<3")
+        .new-bet
+          .selected-box.clearfix
+            #select-list-box.selected-list
+              dl
+                dd(ng-repeat="bet in quickThree.betList track by $index" ng-class="{'modify': quickThree.modSelect==$index}")
+                  span.nums
+                    strong.c_ba2636 {{bet.ball | limitString: 29}}
+                  span.edit
+                    a(ng-click="quickThree.deleteBet($index)") 删除
+                  span.sum {{bet.money}} 元
+            .selected-btnbox
+              a.selected-btn(ng-click="quickThree.randomOneBet()") 机选一注
+              .random-btn
+                label
+                  input(type="text" placeholder="5注" ng-model="quickThree.randomTime")
+                a.selected-btn(ng-click="quickThree.randomMultiBets(quickThree.randomTime)") 机选
+              .selected-btn.clear-btn(ng-click="quickThree.clearList()") 清空列表
+          .bet-result
+            span.holder-wrap-left
+              | 共
+              strong.bet-num-count 1
+              | 注，
+            span.time-num-wrap
+              | 我要买
+              span.add-substract
+                a.substract(ng-click="quickThree.subNum('betWeight')" ng-show="quickThree.betWeight>1")
+                a.substract.prohibit(ng-hide="quickThree.betWeight>1")
+                input(type="text" ng-model="quickThree.betWeight")
+                a.add(ng-click="quickThree.addNum('betWeight')")
+              | 倍，
+            span.period-num-wrap
+              | 连续购买
+              span.add-substract
+                a.substract(ng-click="quickThree.subNum('betTimes')" ng-show="quickThree.betTimes>1")
+                a.substract.prohibit(ng-hide="quickThree.betTimes>1")
+                input(type="text" value="1" ng-model="quickThree.betTimes")
+                a.add(ng-click="quickThree.addNum('betTimes')")
+              | 期，
+            span.holder-wrap-right
+              | 共
+              strong.bet-money-count {{ quickThree.totalBill }}
+              | 元
+          .betbtn-box
+            p.bet-btns
+              span(id="normal-btn-box")
+                a.betting-btn(ng-click="quickThree.submitBet()")
 
 
