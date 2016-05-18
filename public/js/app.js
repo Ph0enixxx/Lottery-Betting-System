@@ -20,10 +20,14 @@
       templateUrl: '/components/big-fun/big-fun',
       controller: 'BigFunController',
       controllerAs: 'bigFun'
-    }).when('bet-list', {
+    }).when('/bet-list', {
       templateUrl: '/components/bet-list/bet-list',
       controller: 'BetListController',
       controllerAs: 'BetList'
+    }).when('/order-five', {
+      templateUrl: '/components/order-five/order-five',
+      controller: 'OrderFiveController',
+      controllerAs: 'OrderFive'
     }).otherwise({
       redirectTo: '/main'
     });

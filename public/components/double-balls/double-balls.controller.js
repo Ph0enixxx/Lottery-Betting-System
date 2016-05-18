@@ -11,6 +11,7 @@
     var PER_PRICE = 2;
 
     ballCtrl.clearList = clearList;
+    ballCtrl.gameType = 'normal';
     ballCtrl.submitBet = submitBet;
     ballCtrl.randomOneBet = randomOneBet;
     ballCtrl.randomMultiBets = randomMultiBets;

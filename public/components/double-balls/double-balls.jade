@@ -17,6 +17,13 @@
     section.main.clearfix
       section.betting-box
         #main-panels
+          .select-way
+            label
+              input(type="radio" name="game-way" value="normal" ng-model="gameType")
+              | &nbsp;常规
+            label
+              input(type="radio" name="game-way" value="abnormal" ng-model="gameType")
+              | &nbsp;定胆
           .select-num
             .title
               h2.red-title

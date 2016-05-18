@@ -8,7 +8,28 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var users =  require('./routes/users');
 var app = express();
+var mysql = require("mysql");
 
+// First you need to create a connection to the db
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "jay",
+  password: "jay"
+});
+
+con.connect(function(err){
+  if(err){
+    console.log('Error connecting to Db');
+    return;
+  }
+  console.log('Connection established');
+});
+
+con.end(function(err) {
+  // The connection is terminated gracefully
+  // Ensures all previously enqueued queries are still
+  // before sending a COM_QUIT packet to the MySQL server.
+});
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/public');
 app.use(express.static(__dirname + '/public'));
@@ -30,6 +51,10 @@ app.get('/components/:component/:name', function(req, res) {
   res.render('components/' + component + '/' + name);
 });
 
+
+app.post('/account', function(req, res) {
+
+});
 /*
 app.post('/api/login', function(req, res) {
   console.log(req.body, "<<<<<<<<<<<<<<<<<<<");
