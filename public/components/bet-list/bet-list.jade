@@ -4,7 +4,20 @@
       tr
         th 时间
         th 彩种
-        th 订单信息
+        th 当前期数
+        th 期数
+        th 倍数
         th 订单金额(元)
         th 奖金(元)
+        th 信息
+      tr(ng-repeat="order in BetList.list ")
+        td {{order.time}}
+        td {{order.name}}
+        td {{order.period}}
+        td {{order.times}}
+        td {{order.weight}}
+        td {{order.money}}
+        td 500万
+        td 
+          a(ng-click="BetList.checkList(order.detail, order.type)" style="cursor: pointer") 查看
 

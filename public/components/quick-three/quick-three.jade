@@ -25,11 +25,11 @@
         #main-panels
           .bet-box
             p.game-intro
-              label
-                input(type="radio" checked="checked") 
+              label(ng-click="quickThree.changeGameType()")
+                input(type="radio" checked="checked" value="normal" ng-model="quickThree.gameType") 
                 | &nbsp;标准投注
-              label
-                input(type="radio") 
+              label(ng-click="quickThree.changeGameType()")
+                input(type="radio" value="abnormal" ng-model="quickThree.gameType") 
                 |  &nbsp;拖胆投注
             .normal
               .title
@@ -51,8 +51,9 @@
                   strong.c_ba2636 {{quickThree.money}}
                   | 元
               .bet-btn-box
-                a(ng-show="quickThree.selectSum<3")
-                a.bet-ok(ng-click="quickThree.makeOneBet()" ng-hide="quickThree.selectSum<3")
+                a(ng-show="quickThree.selectSum<3" ng-if="quickThree.gameType === 'normal'")
+                a.bet-ok(ng-click="quickThree.makeOneBet()" ng-hide="quickThree.selectSum<3" ng-if="quickThree.gameType === 'normal'")
+                a.bet-ok.ding(ng-click="quickThree.makeOneDing()" ng-if="quickThree.gameType ==='abnormal'")
         .new-bet
           .selected-box.clearfix
             #select-list-box.selected-list

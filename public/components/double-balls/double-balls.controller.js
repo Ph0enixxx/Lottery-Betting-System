@@ -1,7 +1,7 @@
 (function() {
   angular.module('LotteryApp').controller('DoubleBallsController', DoubleBallsController);
 
-  function DoubleBallsController(appUtils) {
+  function DoubleBallsController(appUtils, Lottery) {
     var RED_BALL_NUM = 33;
     var BLUE_BALL_NUM = 16;
     var NEED_RED_NUM = 6;
@@ -43,9 +43,42 @@
     ballCtrl.blueBalls = initBalls(BLUE_BALL_NUM); 
     ballCtrl.redAwardBalls = _.range(1,7);
     ballCtrl.blueBall = 2;
+    ballCtrl.changeGameType = changeGameType;
+    ballCtrl.generateDingBet = generateDingBet;
 
     function addNum(field) {
       ballCtrl[field] ++;
+    }
+
+    function generateDingBet() {
+      var cnt = ballCtrl.colorBallStat[RED_BALL];
+      var num;
+      while (cnt < 6) {
+        num = Math.ceil(Math.random() * RED_BALL_NUM);
+        if (!ballCtrl.redBalls[num - 1].selected) {
+          ballCtrl.redBalls[num - 1].selected = true;
+          ballCtrl.colorBallStat[RED_BALL] ++;
+          ballCtrl.betCount  = appUtils.computeCxy(ballCtrl.colorBallStat[RED_BALL], NEED_RED_NUM) * ballCtrl.colorBallStat[BLUE_BALL];
+          ballCtrl.money =  ballCtrl.betCount * PER_PRICE;
+          cnt ++;
+        }
+      }
+
+      if (ballCtrl.colorBallStat[BLUE_BALL] === 0) {
+        num = Math.ceil(Math.random() * BLUE_BALL_NUM);
+        ballCtrl.blueBalls[num - 1].selected = true;
+        ballCtrl.betCount  = appUtils.computeCxy(ballCtrl.colorBallStat[RED_BALL], NEED_RED_NUM) * ballCtrl.colorBallStat[BLUE_BALL];
+        ballCtrl.money =  ballCtrl.betCount * PER_PRICE;
+      }
+      generateBet();
+    }
+
+    function changeGameType() {
+      ballCtrl.money = 0;
+      ballCtrl.betCount = 0;
+      ballCtrl.colorBallStat = [0, 0];
+      ballCtrl.modSelect = -1;
+      clearBalls();
     }
 
     function subNum(field) {
@@ -58,6 +91,10 @@
         ballCtrl.colorBallStat[color]--;
       }
       else {
+        if (ballCtrl.gameType === 'abnormal' && RED_BALL === color && ballCtrl.colorBallStat[color] >= 5) {
+          alert('定胆最多只能选5个红球哦~！');
+          return;
+        }
         ball.selected  = true;
         ballCtrl.colorBallStat[color]++;
       }
@@ -180,6 +217,16 @@
 
     function submitBet() {
       alert('订单已经提交，祝好运！');
+      Lottery.betList.push({
+        type: 'double-ball',
+        name: '双色球',
+        money: ballCtrl.sumPrice * ballCtrl.betTimes * ballCtrl.betWeight,
+        times: ballCtrl.betTimes,
+        weight: ballCtrl.betWeight,
+        period: 11,
+        detail: ballCtrl.betList,
+        time: Date().slice(0, 24)
+      });
       clearBalls();
       clearList();
     }

@@ -1,13 +1,14 @@
 (function() {
   angular.module('LotteryApp').controller('QuickThreeController', QuickThreeController);
 
-  function QuickThreeController($scope, appUtils, $timeout) {
+  function QuickThreeController($scope, appUtils, $timeout, Lottery) {
     var quickThree = this;
     var NEED_BALL_NUM = 3;
     var BALL_SUM = 6;
     var PRICE = 2;
     quickThree.balls = [];
     quickThree.minute = 59;
+    quickThree.gameType = 'normal';
     quickThree.seconds = 59;
     quickThree.mseconds = 59;
     quickThree.money = 0;
@@ -16,11 +17,14 @@
     quickThree.betNum = 0;
     quickThree.selectSum = 0;
     quickThree.addNum = addNum;
+    quickThree.submitBet = submitBet;
     quickThree.subNum = subNum;
     quickThree.selectBall = selectBall;
     quickThree.makeOneBet = makeOneBet;
     quickThree.randomOneBet = randomOneBet;
+    quickThree.changeGameType = changeGameType;
     quickThree.randomTime = 5;
+    quickThree.makeOneDing = makeOneDing;
     quickThree.randomMultiBets = randomMultiBets;
     quickThree.deleteBet = deleteBet;
     quickThree.clearList = clearList;
@@ -32,6 +36,26 @@
     function addNum(field) {
       quickThree[field]++;
       computeTotalMoney();
+    }
+
+    function changeGameType() {
+      quickThree.selectSum = 0;
+      clearBalls();
+    }
+
+    function makeOneDing() {
+      var cnt = quickThree.selectSum;
+      var num;
+      while(cnt < NEED_BALL_NUM) {
+        num = Math.ceil(Math.random() * BALL_SUM);
+        if (!quickThree.balls[num - 1].select) {
+          quickThree.balls[num - 1].select = true;
+          quickThree.selectSum ++;
+          cnt ++;
+        }
+      }
+      quickThree.money = PRICE;
+      makeOneBet();
     }
     
     function subNum(field) {
@@ -76,6 +100,10 @@
         quickThree.balls[idx].select = false;
       }
       else {
+        if (quickThree.gameType === 'abnormal' && quickThree.selectSum >= 2) {
+          alert('拖胆最多只能定两个胆');
+          return;
+        }
         quickThree.selectSum ++;
         quickThree.balls[idx].select = true;
       }
@@ -153,6 +181,23 @@
 
     function toTimingString(val) {
       return  val < 10 ? '0' + val : val + '';
+    }
+
+    function submitBet() {
+      alert('订单已经提交，祝好运！');
+      Lottery.betList.push({
+        type: 'quick-three',
+        name: '快三',
+        money: quickThree.totalBill,
+        times: quickThree.betTimes,
+        period: 1231,
+        weight: quickThree.betWeight,
+        detail: quickThree.betList,
+        time: Date().slice(0, 24)
+      });
+      clearBalls();
+      clearList();
+
     }
 
     $scope.$on('$detroy', function() {

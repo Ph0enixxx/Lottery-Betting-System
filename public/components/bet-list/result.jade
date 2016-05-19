@@ -1,0 +1,25 @@
+#list-result
+  .inner
+    .modal-header
+      button.close(ng-click='cancel()', type='button')
+        span(aria-hidden='true') ×
+        span.sr-only Close
+      h4#myModalLabel.modal-title 投注信息
+      table.table.table-striped(ng-hide="type=='quick-three'")
+        tr
+          th 类型
+          th 红球
+          th 蓝球
+          th 金额
+        tr(ng-repeat="bet in bets ")
+          td {{bet.type}}
+          td {{bet.red}}
+          td {{bet.blue}}
+          td {{bet.sum}} 元
+      table.table.table-striped(ng-show="type=='quick-three'")
+        tr
+          th 号码
+          th 金额
+        tr(ng-repeat="bet in bets ")
+          td {{bet.ball}}
+          td {{bet.money}} 元

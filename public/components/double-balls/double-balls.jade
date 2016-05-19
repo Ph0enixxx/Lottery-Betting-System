@@ -18,20 +18,22 @@
       section.betting-box
         #main-panels
           .select-way
-            label
-              input(type="radio" name="game-way" value="normal" ng-model="gameType")
+            label(ng-click="dbPage.changeGameType()")
+              input(type="radio" name="game-way" value="normal" ng-model="dbPage.gameType")
               | &nbsp;常规
-            label
-              input(type="radio" name="game-way" value="abnormal" ng-model="gameType")
+            label(ng-click="dbPage.changeGameType()")
+              input(type="radio" name="game-way" value="abnormal" ng-model="dbPage.gameType")
               | &nbsp;定胆
           .select-num
             .title
               h2.red-title
                 strong 红球区
-                span 至少选择6个红球
+                span(ng-show="dbPage.gameType==='normal'") 至少选择6个红球
+                span(ng-show="dbPage.gameType==='abnormal'") 红球 可选胆码(1-5)个 可杀号(1-27)个
               h2.blue-title
                 strong 蓝球区
-                span 至少选择1个蓝球
+                span(ng-show="dbPage.gameType==='normal'") 至少选择1个蓝球
+                span(ng-show="dbPage.gameType==='abnormal'") 蓝球 可杀号(1-15)个
           .ball-area
             .red-ball-box.clearfix
               ul
@@ -66,8 +68,9 @@
                 元 
                 i
         .betbtn-box(title="确认选号")
-          a.betbtn(title="确认选号" ng-click="dbPage.generateBet()" ng-show="dbPage.betCount")
-          a.betbtn.prohibit(title="确认选号" ng-hide="dbPage.betCount")
+          a.betbtn(title="确认选号" ng-click="dbPage.generateBet()" ng-show="dbPage.betCount" ng-if="dbPage.gameType==='normal'")
+          a.betbtn.prohibit(title="确认选号" ng-hide="dbPage.betCount" ng-if="dbPage.gameType==='normal'")
+          a.betbtn.random(title="开始机选" ng-click="dbPage.generateDingBet()" ng-if="dbPage.gameType==='abnormal'")
         .new-bet
           .selected-box.clearfix
             #select-list-box.selected-list

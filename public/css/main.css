@@ -250,6 +250,9 @@
 #double-balls > .wrapper .betbtn-box .prohibit {
   background-position: 0 -145px;
 }
+#double-balls > .wrapper .betbtn-box .betbtn.random {
+  background-position: 0 -641px;
+}
 #double-balls > .wrapper .new-bet .selected-box {
   padding-left: 81px;
 }
@@ -639,6 +642,9 @@
   text-align: center;
   paddint-bottom: 10px;
 }
+#quick-three > .wrapper .main #main-panels .bet-box .game-intro label + label {
+  margin-left: 20px;
+}
 #quick-three > .wrapper .main #main-panels .bet-box .normal .title {
   text-align: center;
 }
@@ -696,6 +702,9 @@
 }
 #quick-three > .wrapper .main #main-panels .bet-box .normal .bet-btn-box a.bet-ok {
   background-position: 0 -111px;
+}
+#quick-three > .wrapper .main #main-panels .bet-box .normal .bet-btn-box a.bet-ok.ding {
+  background-position: 0 -641px;
 }
 #quick-three > .wrapper .main .new-bet {
   margin-top: 30px;
@@ -1611,4 +1620,8 @@
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #fff;
   }
+}
+tr td,
+tr th {
+  text-align: center;
 }

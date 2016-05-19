@@ -1,7 +1,7 @@
 (function() {
   angular.module('LotteryApp').controller('BigFunController', BigFunController);
 
-  function BigFunController(appUtils) {
+  function BigFunController(appUtils, Lottery) {
     var RED_BALL_NUM = 35;
     var BLUE_BALL_NUM = 12;
     var NEED_RED_NUM = 5;
@@ -181,6 +181,16 @@
 
     function submitBet() {
       alert('订单已经提交，祝好运！');
+      Lottery.betList.push({
+        type: 'big-fun',
+        name: '大乐透',
+        money: ballCtrl.sumPrice * ballCtrl.betTimes * ballCtrl.betWeight,
+        times: ballCtrl.betTimes,
+        weight: ballCtrl.betWeight,
+        period: 113,
+        detail: ballCtrl.betList,
+        time: Date().slice(0, 24)
+      });
       clearBalls();
       clearList();
     }
