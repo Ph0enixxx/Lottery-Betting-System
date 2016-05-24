@@ -1542,6 +1542,20 @@
 #order-five .main .ball-left #select-form #buy-con #betting-box #player-con #zx-con .way-tags .f-left {
   float: left;
 }
+#main-page {
+  position: relative;
+}
+#main-page h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
 /* navbar */
 .navbar-default {
   border-bottom: 1px solid #e1e1e1;
